@@ -1,3 +1,66 @@
 h1{
   color: red;
 }
+
+
+/******* BOX MODEL HACK *******/
+* {
+  box-sizing:border-box;
+}
+
+/*** INTITAL COIN STYLE ***/
+.coin{
+  height: 300px;
+  width: 300px;
+  position: relative;
+  margin: 32px auto;
+  animation-name: rotation;
+  animation-timing-function: linear;
+  transform: rotateY(0deg) 1.5s ease-in;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+.coin div{
+  width: 300px;
+  height: 300px;
+  margin: auto;
+}
+.heads,.tails{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+
+.heads {
+  background-color: rgb(42, 174, 235);
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+.tails {
+  background-color: rgb(242, 73, 115);
+  z-index: 1;
+  transform: rotateY(180deg);
+}
+
+
+/*** INTIAL ANIMATIONS ***/
+@keyframes spin-tails{
+  0% {
+      transform: rotate3d(0, 1, 0, 0deg);
+    }
+    100% {
+      transform: rotate3d(0, 1, 0, 900deg);
+    }
+}
+@keyframes spin-heads{
+  0% {
+      transform: rotate3d(0, 1, 0, 0deg);
+    }
+    100% {
+      transform: rotate3d(0, 1, 0, 1080deg);
+    }
+}
